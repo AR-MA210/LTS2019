@@ -13,12 +13,6 @@ rational : (p: Nat) -> (q: Integer) -> NotZero q -> (Integer, Integer)
 rational Z q x = (toIntegerNat(0), q)
 rational (S k) q x = (toIntegerNat(S k), q)
 
-{-
--- snd x can be used instead
-SecondPart : (Integer, Integer) -> Integer
-SecondPart x = (snd x)
--}
-
 --To simplify rationals to coprime factors, Euclid's algo
 gccd : (Integer, Integer) -> Integer
 gccd (a, b) = if (isNotZero (toNat b)) then next else a where
@@ -53,3 +47,5 @@ inverseRat x = simplifyRational ((snd x), (fst x))
 
 --To do : Inverses are unique, except for equality (if b1 and b2 are inverses of a, b1 = b2)
 --A GCD function with proof that it is the GCD would be useful to reduce rationals into simplified form
+
+--I think we can continue working with Integer.
